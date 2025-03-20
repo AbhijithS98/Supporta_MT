@@ -6,6 +6,7 @@ import connectDB from './config/db.js';
 import authRoutes from '../src/routes/authRoutes.js';
 import userRoutes from '../src/routes/userRoutes.js';
 import brandRoutes from '../src/routes/brandRoutes.js';
+import productRoutes from '../src/routes/productRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -23,6 +24,7 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/auth',authRoutes);
 app.use('/api/user',userRoutes);
 app.use('/api/brand',brandRoutes);
+app.use('/api/product',productRoutes);
 
 // Default Route
 app.get('/', (req, res) => {
