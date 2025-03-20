@@ -1,6 +1,7 @@
 import User from '../models/userModel.js';
 
 export class UserRepository {
+    
     async createUser(userData) {
         return await User.create(userData);
     }

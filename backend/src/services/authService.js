@@ -30,8 +30,7 @@ export class AuthService {
 
     async refreshToken(oldRefreshToken) {
       if (!oldRefreshToken) throw new Error('Refresh token is required');
-      console.log("rt:",oldRefreshToken);
-      
+  
       try {
           const decoded = jwt.verify(oldRefreshToken, process.env.JWT_SECRET);
           const user = await userRepository.findById(decoded.userId);

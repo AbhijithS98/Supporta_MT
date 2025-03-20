@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from '../src/routes/authRoutes.js';
 import userRoutes from '../src/routes/userRoutes.js';
+import brandRoutes from '../src/routes/brandRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -16,8 +17,12 @@ app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
 app.use(cors({ origin: '*', credentials:true }));
 
+// Serve uploaded images statically
+app.use('/uploads', express.static('uploads'));
+
 app.use('/api/auth',authRoutes);
 app.use('/api/user',userRoutes);
+app.use('/api/brand',brandRoutes);
 
 // Default Route
 app.get('/', (req, res) => {
