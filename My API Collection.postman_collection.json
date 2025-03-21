@@ -1,0 +1,2477 @@
+{
+	"info": {
+		"_postman_id": "61a92fee-897e-42e2-9779-5bf0da3355f7",
+		"name": "My API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33102884"
+	},
+	"item": [
+		{
+			"name": "Auth & Profile",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"abhijith\",\r\n    \"email\": \"abhijithsb745@gmail.com\",\r\n    \"password\": \"iamabhijith\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"abhijith\",\r\n    \"email\": \"abhijithsb745@gmail.com\",\r\n    \"password\": \"iamabhijith\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "336"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"150-gMdxz/YuS2G0ga5q7H31ikkZcFM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Mar 2025 15:22:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\",\n    \"user\": {\n        \"username\": \"abhijith\",\n        \"email\": \"abhijithsb745@gmail.com\",\n        \"password\": \"$2b$10$HsWsPqcUMD7NWlk2FYe7beSEqpNZFf1YN51zPO50chjF2e0DBGHd6\",\n        \"profilePhoto\": \"\",\n        \"blockedUsers\": [],\n        \"_id\": \"67dae128a02a092df496f4ec\",\n        \"createdAt\": \"2025-03-19T15:22:16.545Z\",\n        \"updatedAt\": \"2025-03-19T15:22:16.545Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"if (responseData.accessToken) {\r",
+									"    pm.environment.set(\"accessToken\", responseData.accessToken);\r",
+									"}\r",
+									"\r",
+									"if (responseData.user && responseData.user._id) {\r",
+									"    pm.environment.set(\"userId\", responseData.user._id);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"reshmi123@gmail.com\",\r\n    \"password\": \"iamreshmi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success user1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"abhijithsb745@gmail.com\",\r\n    \"password\": \"iamabhijith\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RhZTEyOGEwMmEwOTJkZjQ5NmY0ZWMiLCJpYXQiOjE3NDIzOTgyNTIsImV4cCI6MTc0MzAwMzA1Mn0.V7dJr9Vf6zRspxa4yK5qFzWnEAMraHoPt70jUfhMPMo; Path=/; HttpOnly; SameSite=Strict"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "517"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"205-Ihme0VdyTfqr15Q8AObm9S8Zsag\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Mar 2025 15:30:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"user\": {\n        \"_id\": \"67dae128a02a092df496f4ec\",\n        \"username\": \"abhijith\",\n        \"email\": \"abhijithsb745@gmail.com\",\n        \"password\": \"$2b$10$HsWsPqcUMD7NWlk2FYe7beSEqpNZFf1YN51zPO50chjF2e0DBGHd6\",\n        \"profilePhoto\": \"\",\n        \"blockedUsers\": [],\n        \"createdAt\": \"2025-03-19T15:22:16.545Z\",\n        \"updatedAt\": \"2025-03-19T15:22:16.545Z\",\n        \"__v\": 0\n    },\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RhZTEyOGEwMmEwOTJkZjQ5NmY0ZWMiLCJpYXQiOjE3NDIzOTgyNTIsImV4cCI6MTc0MjM5OTE1Mn0.cjEA1aDdb9mr4pqbBDIgGIkNfEkNJTtl2H1C6YjeIJw\"\n}"
+						},
+						{
+							"name": "success user2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"reshmi123@gmail.com\",\r\n    \"password\": \"iamreshmi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjMTZkNTk3Mjc0NTY4ODE2OWQ0M2UiLCJpYXQiOjE3NDI0NzcwNjksImV4cCI6MTc0MzA4MTg2OX0.5sBsVxXRSpFxm90zQJZJA__-J-u3XdE06eGUS1zetT8; Path=/; HttpOnly; SameSite=Strict"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "511"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ff-1vFrTPQBgDAejFy0Yoj3TlFaASk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 13:24:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"user\": {\n        \"_id\": \"67dc16d5972745688169d43e\",\n        \"username\": \"reshmi\",\n        \"email\": \"reshmi123@gmail.com\",\n        \"password\": \"$2b$10$f2MsO0uWSoK6ROfhNwbalOvilRzprvzwIStu2NCQMLfD0vCc68ZcS\",\n        \"profilePhoto\": \"\",\n        \"blockedUsers\": [],\n        \"createdAt\": \"2025-03-20T13:23:33.725Z\",\n        \"updatedAt\": \"2025-03-20T13:23:33.725Z\",\n        \"__v\": 0\n    },\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjMTZkNTk3Mjc0NTY4ODE2OWQ0M2UiLCJpYXQiOjE3NDI0NzcwNjksImV4cCI6MTc0MjQ3Nzk2OX0.FpEVTn8ymleFGDoSJsyjo0KWCZdXuVwW2WkOpCYxq0I\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh-token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"if (responseData.accessToken) {\r",
+									"    pm.environment.set(\"accessToken\", responseData.accessToken);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/auth/refresh-token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"refresh-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "235"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"eb-HO+nQ32lXA6nUqyIrScAtxvzdoE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Mar 2025 16:26:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Token refreshed successfully\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RhZTEyOGEwMmEwOTJkZjQ5NmY0ZWMiLCJpYXQiOjE3NDI0MDE1NzUsImV4cCI6MTc0MjQwMjQ3NX0.tcTKuVV1nrGZ_8ppmBgttkcKJ2ZVGUUbN3t8Cok4Asg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Clear accessToken & userId from environment when logging out\r",
+									"pm.environment.unset(\"accessToken\");\r",
+									"pm.environment.unset(\"userId\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Strict"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-V9rW7eXSi+fbWW1efmHlOS+A738\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Mar 2025 16:35:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged out successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"abhi68\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/profile/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"abhi98\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/profile/{{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"profile",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-hjIX9N4W/qVVb8LOhI3cIPA7rDs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 06:59:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Profile updated successfully\",\n    \"updatedUser\": {\n        \"_id\": \"67dae128a02a092df496f4ec\",\n        \"username\": \"abhi98\",\n        \"email\": \"abhijithsb745@gmail.com\",\n        \"password\": \"$2b$10$HsWsPqcUMD7NWlk2FYe7beSEqpNZFf1YN51zPO50chjF2e0DBGHd6\",\n        \"profilePhoto\": \"\",\n        \"blockedUsers\": [],\n        \"createdAt\": \"2025-03-19T15:22:16.545Z\",\n        \"updatedAt\": \"2025-03-20T06:59:16.630Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteProfile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Clear accessToken & userId from environment when logging out\r",
+									"pm.environment.unset(\"accessToken\");\r",
+									"pm.environment.unset(\"userId\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/profile/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/user/profile/{{userId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"profile",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Strict"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-AVrBlcnhiP3F9VffLe5lIkbOt6k\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 07:34:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted successfully and logged out.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Brand management",
+			"item": [
+				{
+					"name": "Add-brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "brandName",
+									"value": "Apple",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "[\"Smartphones\", \"Laptops\", \"Accessories\"]",
+									"type": "text"
+								},
+								{
+									"key": "brandLogo",
+									"type": "file",
+									"src": "postman-cloud:///1f005765-8998-4020-b63a-7d786e161cef"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/brand/add-brand",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"brand",
+								"add-brand"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "brandName",
+											"value": "Nike",
+											"type": "text"
+										},
+										{
+											"key": "categories",
+											"value": "[\"Shoes\", \"Clothing\", \"Accessories\"]",
+											"type": "text"
+										},
+										{
+											"key": "brandLogo",
+											"type": "file",
+											"src": "postman-cloud:///1f005732-0338-42b0-8574-8495c63bfa47"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/brand/add-brand",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"brand",
+										"add-brand"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "288"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"120-FgUrSZkRC5krNm619wHVvwBYuDM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 10:10:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Brand created successfully\",\n    \"brand\": {\n        \"brandName\": \"Nike\",\n        \"brandLogo\": \"uploads\\\\1742465419588-nike_logo.jpeg\",\n        \"categories\": [\n            \"Shoes\",\n            \"Clothing\",\n            \"Accessories\"\n        ],\n        \"_id\": \"67dbe98b2a2cd756ce9e3b2a\",\n        \"createdAt\": \"2025-03-20T10:10:19.616Z\",\n        \"updatedAt\": \"2025-03-20T10:10:19.616Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List-brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/brand/list-brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"brand",
+								"list-brands"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/brand/list-brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"brand",
+										"list-brands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "732"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2dc-H2053K8e99/d+HLF1o8soTxSlUQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 10:36:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dbe98b2a2cd756ce9e3b2a\",\n        \"brandName\": \"Nike\",\n        \"brandLogo\": \"uploads\\\\1742465419588-nike_logo.jpeg\",\n        \"categories\": [\n            \"Shoes\",\n            \"Clothing\",\n            \"Accessories\"\n        ],\n        \"createdAt\": \"2025-03-20T10:10:19.616Z\",\n        \"updatedAt\": \"2025-03-20T10:10:19.616Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dbeb707d797983e313c38a\",\n        \"brandName\": \"Adidas\",\n        \"brandLogo\": \"uploads\\\\1742465904686-adidas_logo.png\",\n        \"categories\": [\n            \"Shoes\",\n            \"Sportswear\",\n            \"Accessories\"\n        ],\n        \"createdAt\": \"2025-03-20T10:18:24.705Z\",\n        \"updatedAt\": \"2025-03-20T10:18:24.705Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dbef2914fb4b681b756894\",\n        \"brandName\": \"Apple\",\n        \"brandLogo\": \"uploads\\\\1742466857605-apple_logo.png\",\n        \"categories\": [\n            \"Smartphones\",\n            \"Laptops\",\n            \"Accessories\"\n        ],\n        \"createdAt\": \"2025-03-20T10:34:17.624Z\",\n        \"updatedAt\": \"2025-03-20T10:34:17.624Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product Management",
+			"item": [
+				{
+					"name": "Add-product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productName",
+									"value": "iPhone 15",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Latest iPhone with A16 Bionic Chip",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "999",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Smartphones",
+									"type": "text"
+								},
+								{
+									"key": "brandName",
+									"value": "Apple",
+									"type": "text"
+								},
+								{
+									"key": "productImage",
+									"type": "file",
+									"src": "postman-cloud:///1f005834-0d0b-4640-baeb-da45156808d6"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/add-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"add-product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productName",
+											"value": "iPhone 15",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Latest iPhone with A16 Bionic Chip",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "999",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Smartphones",
+											"type": "text"
+										},
+										{
+											"key": "brandName",
+											"value": "Apple",
+											"type": "text"
+										},
+										{
+											"key": "productImage",
+											"type": "file",
+											"src": "postman-cloud:///1f005834-0d0b-4640-baeb-da45156808d6"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/add-product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"add-product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "410"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19a-nubul8FSwRZo5F7mJMwrtgb241g\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:05:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product added successfully\",\n    \"product\": {\n        \"productName\": \"iPhone 15\",\n        \"description\": \"Latest iPhone with A16 Bionic Chip\",\n        \"price\": 999,\n        \"category\": \"Smartphones\",\n        \"brand\": \"67dbef2914fb4b681b756894\",\n        \"productImage\": \"uploads\\\\1742472308535-iPhone15.png\",\n        \"addedBy\": \"67dbc53e0981a82856400a54\",\n        \"_id\": \"67dc04749e16f483b63a7fe0\",\n        \"createdAt\": \"2025-03-20T12:05:08.564Z\",\n        \"updatedAt\": \"2025-03-20T12:05:08.564Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "category not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productName",
+											"value": "iPhone 11",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Latest iPhone with A16 Bionic Chip",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "999",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Ipad",
+											"type": "text"
+										},
+										{
+											"key": "brandName",
+											"value": "Apple",
+											"type": "text"
+										},
+										{
+											"key": "productImage",
+											"type": "file",
+											"src": "postman-cloud:///1f005880-b472-4b30-afbc-b7919c55409e"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/add-product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"add-product"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-459lTVdNynA0SFZhr3i7oEIXvvQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:38:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Category \\\"Ipad\\\" is not available under the selected brand\"\n}"
+						},
+						{
+							"name": "brand not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productName",
+											"value": "iPhone 11",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Latest iPhone with A16 Bionic Chip",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "999",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Ipad",
+											"type": "text"
+										},
+										{
+											"key": "brandName",
+											"value": "Mototolla",
+											"type": "text"
+										},
+										{
+											"key": "productImage",
+											"type": "file",
+											"src": "postman-cloud:///1f005880-b472-4b30-afbc-b7919c55409e"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/add-product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"add-product"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-Uc4OJgonb5EQ4kJGTI51YrN08Uo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:39:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Brand does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List-products (with blocking system)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product/list-products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"list-products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "without filter or sorting",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/list-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"list-products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3450"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d7a-WryUzSJjQNmlArwVe249rY7WTYk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 13:50:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dc04749e16f483b63a7fe0\",\n        \"productName\": \"iPhone 15\",\n        \"description\": \"Latest iPhone with A16 Bionic Chip\",\n        \"price\": 999,\n        \"category\": \"Smartphones\",\n        \"brand\": {\n            \"_id\": \"67dbef2914fb4b681b756894\",\n            \"brandName\": \"Apple\",\n            \"brandLogo\": \"uploads\\\\1742466857605-apple_logo.png\",\n            \"categories\": [\n                \"Smartphones\",\n                \"Laptops\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:34:17.624Z\",\n            \"updatedAt\": \"2025-03-20T10:34:17.624Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742472308535-iPhone15.png\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\",\n            \"password\": \"$2b$10$llGnVfoPMzn5U8tKQnUX0.LC53PEMiIM4PUXlZl0/BKnV2GGZ/wRK\",\n            \"profilePhoto\": \"\",\n            \"blockedUsers\": [],\n            \"createdAt\": \"2025-03-20T07:35:26.479Z\",\n            \"updatedAt\": \"2025-03-20T07:35:26.479Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2025-03-20T12:05:08.564Z\",\n        \"updatedAt\": \"2025-03-20T12:05:08.564Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1623972745688169d43b\",\n        \"productName\": \"Nike Air Zoom Pegasus 40\",\n        \"description\": \"Lightweight running shoes with great cushioning\",\n        \"price\": 129,\n        \"category\": \"Shoes\",\n        \"brand\": {\n            \"_id\": \"67dbe98b2a2cd756ce9e3b2a\",\n            \"brandName\": \"Nike\",\n            \"brandLogo\": \"uploads\\\\1742465419588-nike_logo.jpeg\",\n            \"categories\": [\n                \"Shoes\",\n                \"Clothing\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:10:19.616Z\",\n            \"updatedAt\": \"2025-03-20T10:10:19.616Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742476835632-nike_air_pegasus.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\",\n            \"password\": \"$2b$10$llGnVfoPMzn5U8tKQnUX0.LC53PEMiIM4PUXlZl0/BKnV2GGZ/wRK\",\n            \"profilePhoto\": \"\",\n            \"blockedUsers\": [],\n            \"createdAt\": \"2025-03-20T07:35:26.479Z\",\n            \"updatedAt\": \"2025-03-20T07:35:26.479Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2025-03-20T13:20:35.651Z\",\n        \"updatedAt\": \"2025-03-20T13:20:35.651Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1bd2972745688169d444\",\n        \"productName\": \"Adidas Tiro 23 Training Pants\",\n        \"description\": \"Comfortable and stylish sportswear for athletes\",\n        \"price\": 299,\n        \"category\": \"Sportswear\",\n        \"brand\": {\n            \"_id\": \"67dbeb707d797983e313c38a\",\n            \"brandName\": \"Adidas\",\n            \"brandLogo\": \"uploads\\\\1742465904686-adidas_logo.png\",\n            \"categories\": [\n                \"Shoes\",\n                \"Sportswear\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:18:24.705Z\",\n            \"updatedAt\": \"2025-03-20T10:18:24.705Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742478290273-adidas_Tiro_Training_ Pants.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\",\n            \"password\": \"$2b$10$f2MsO0uWSoK6ROfhNwbalOvilRzprvzwIStu2NCQMLfD0vCc68ZcS\",\n            \"profilePhoto\": \"\",\n            \"blockedUsers\": [],\n            \"createdAt\": \"2025-03-20T13:23:33.725Z\",\n            \"updatedAt\": \"2025-03-20T13:23:33.725Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2025-03-20T13:44:50.290Z\",\n        \"updatedAt\": \"2025-03-20T13:44:50.290Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1c68972745688169d448\",\n        \"productName\": \"Apple MacBook Air M2\",\n        \"description\": \"Ultra-thin laptop with the powerful M2 chip\",\n        \"price\": 7899,\n        \"category\": \"Laptops\",\n        \"brand\": {\n            \"_id\": \"67dbef2914fb4b681b756894\",\n            \"brandName\": \"Apple\",\n            \"brandLogo\": \"uploads\\\\1742466857605-apple_logo.png\",\n            \"categories\": [\n                \"Smartphones\",\n                \"Laptops\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:34:17.624Z\",\n            \"updatedAt\": \"2025-03-20T10:34:17.624Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742478440930-apple_MacBook_Air_M2.jpg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\",\n            \"password\": \"$2b$10$f2MsO0uWSoK6ROfhNwbalOvilRzprvzwIStu2NCQMLfD0vCc68ZcS\",\n            \"profilePhoto\": \"\",\n            \"blockedUsers\": [],\n            \"createdAt\": \"2025-03-20T13:23:33.725Z\",\n            \"updatedAt\": \"2025-03-20T13:23:33.725Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2025-03-20T13:47:20.943Z\",\n        \"updatedAt\": \"2025-03-20T13:47:20.943Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "with filter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/list-all-products?category=Shoes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"list-all-products"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Shoes"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "456"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c8-moQY1/yzVv2qs92E3nOsuxliLQE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 06:40:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dc1623972745688169d43b\",\n        \"productName\": \"Nike Air Zoom Pegasus 40\",\n        \"description\": \"Lightweight running shoes with great cushioning\",\n        \"price\": 129,\n        \"category\": \"Shoes\",\n        \"brand\": \"67dbe98b2a2cd756ce9e3b2a\",\n        \"productImage\": \"uploads\\\\1742476835632-nike_air_pegasus.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T13:20:35.651Z\",\n        \"updatedAt\": \"2025-03-20T13:20:35.651Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "with sorting by price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/list-all-products?sortField=price&sortOrder=desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"list-all-products"
+									],
+									"query": [
+										{
+											"key": "sortField",
+											"value": "price"
+										},
+										{
+											"key": "sortOrder",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1832"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"728-THwvbPHteLQamseq0J2hu2ARKWQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 06:42:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dc1c68972745688169d448\",\n        \"productName\": \"Apple MacBook Air M2\",\n        \"description\": \"Ultra-thin laptop with the powerful M2 chip\",\n        \"price\": 7899,\n        \"category\": \"Laptops\",\n        \"brand\": \"67dbef2914fb4b681b756894\",\n        \"productImage\": \"uploads\\\\1742478440930-apple_MacBook_Air_M2.jpg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T13:47:20.943Z\",\n        \"updatedAt\": \"2025-03-20T13:47:20.943Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc04749e16f483b63a7fe0\",\n        \"productName\": \"iPhone 15\",\n        \"description\": \"Latest iPhone with A16 Bionic Chip\",\n        \"price\": 999,\n        \"category\": \"Smartphones\",\n        \"brand\": \"67dbef2914fb4b681b756894\",\n        \"productImage\": \"uploads\\\\1742472308535-iPhone15.png\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T12:05:08.564Z\",\n        \"updatedAt\": \"2025-03-20T12:05:08.564Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc33074b8ae9801edcefd3\",\n        \"productName\": \"Adidas Tiro 23 Training Pants\",\n        \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\n        \"price\": 399,\n        \"category\": \"Sportswear\",\n        \"brand\": \"67dbeb707d797983e313c38a\",\n        \"productImage\": \"uploads\\\\1742484231493-adidas_Tiro_Training_ Pants.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T15:23:51.518Z\",\n        \"updatedAt\": \"2025-03-20T15:25:37.833Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1623972745688169d43b\",\n        \"productName\": \"Nike Air Zoom Pegasus 40\",\n        \"description\": \"Lightweight running shoes with great cushioning\",\n        \"price\": 129,\n        \"category\": \"Shoes\",\n        \"brand\": \"67dbe98b2a2cd756ce9e3b2a\",\n        \"productImage\": \"uploads\\\\1742476835632-nike_air_pegasus.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T13:20:35.651Z\",\n        \"updatedAt\": \"2025-03-20T13:20:35.651Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "with sorting by productName",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/list-all-products?sortField=productName&sortOrder=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"list-all-products"
+									],
+									"query": [
+										{
+											"key": "sortField",
+											"value": "productName"
+										},
+										{
+											"key": "sortOrder",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1832"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"728-1AYMATvkNCoV8u9rjV+BBe29uqk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 06:44:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dc33074b8ae9801edcefd3\",\n        \"productName\": \"Adidas Tiro 23 Training Pants\",\n        \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\n        \"price\": 399,\n        \"category\": \"Sportswear\",\n        \"brand\": \"67dbeb707d797983e313c38a\",\n        \"productImage\": \"uploads\\\\1742484231493-adidas_Tiro_Training_ Pants.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T15:23:51.518Z\",\n        \"updatedAt\": \"2025-03-20T15:25:37.833Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1c68972745688169d448\",\n        \"productName\": \"Apple MacBook Air M2\",\n        \"description\": \"Ultra-thin laptop with the powerful M2 chip\",\n        \"price\": 7899,\n        \"category\": \"Laptops\",\n        \"brand\": \"67dbef2914fb4b681b756894\",\n        \"productImage\": \"uploads\\\\1742478440930-apple_MacBook_Air_M2.jpg\",\n        \"addedBy\": {\n            \"_id\": \"67dc16d5972745688169d43e\",\n            \"username\": \"reshmi\",\n            \"email\": \"reshmi123@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T13:47:20.943Z\",\n        \"updatedAt\": \"2025-03-20T13:47:20.943Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1623972745688169d43b\",\n        \"productName\": \"Nike Air Zoom Pegasus 40\",\n        \"description\": \"Lightweight running shoes with great cushioning\",\n        \"price\": 129,\n        \"category\": \"Shoes\",\n        \"brand\": \"67dbe98b2a2cd756ce9e3b2a\",\n        \"productImage\": \"uploads\\\\1742476835632-nike_air_pegasus.jpeg\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T13:20:35.651Z\",\n        \"updatedAt\": \"2025-03-20T13:20:35.651Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc04749e16f483b63a7fe0\",\n        \"productName\": \"iPhone 15\",\n        \"description\": \"Latest iPhone with A16 Bionic Chip\",\n        \"price\": 999,\n        \"category\": \"Smartphones\",\n        \"brand\": \"67dbef2914fb4b681b756894\",\n        \"productImage\": \"uploads\\\\1742472308535-iPhone15.png\",\n        \"addedBy\": {\n            \"_id\": \"67dbc53e0981a82856400a54\",\n            \"username\": \"abhijith\",\n            \"email\": \"abhijithsb745@gmail.com\"\n        },\n        \"createdAt\": \"2025-03-20T12:05:08.564Z\",\n        \"updatedAt\": \"2025-03-20T12:05:08.564Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "My-products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product/my-products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"my-products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/my-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"my-products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d7-978KteL8hpoKSHMWkq4yCpJ7qTU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 13:59:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"67dc1bd2972745688169d444\",\n        \"productName\": \"Adidas Tiro 23 Training Pants\",\n        \"description\": \"Comfortable and stylish sportswear for athletes\",\n        \"price\": 299,\n        \"category\": \"Sportswear\",\n        \"brand\": {\n            \"_id\": \"67dbeb707d797983e313c38a\",\n            \"brandName\": \"Adidas\",\n            \"brandLogo\": \"uploads\\\\1742465904686-adidas_logo.png\",\n            \"categories\": [\n                \"Shoes\",\n                \"Sportswear\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:18:24.705Z\",\n            \"updatedAt\": \"2025-03-20T10:18:24.705Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742478290273-adidas_Tiro_Training_ Pants.jpeg\",\n        \"addedBy\": \"67dc16d5972745688169d43e\",\n        \"createdAt\": \"2025-03-20T13:44:50.290Z\",\n        \"updatedAt\": \"2025-03-20T13:44:50.290Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67dc1c68972745688169d448\",\n        \"productName\": \"Apple MacBook Air M2\",\n        \"description\": \"Ultra-thin laptop with the powerful M2 chip\",\n        \"price\": 7899,\n        \"category\": \"Laptops\",\n        \"brand\": {\n            \"_id\": \"67dbef2914fb4b681b756894\",\n            \"brandName\": \"Apple\",\n            \"brandLogo\": \"uploads\\\\1742466857605-apple_logo.png\",\n            \"categories\": [\n                \"Smartphones\",\n                \"Laptops\",\n                \"Accessories\"\n            ],\n            \"createdAt\": \"2025-03-20T10:34:17.624Z\",\n            \"updatedAt\": \"2025-03-20T10:34:17.624Z\",\n            \"__v\": 0\n        },\n        \"productImage\": \"uploads\\\\1742478440930-apple_MacBook_Air_M2.jpg\",\n        \"addedBy\": \"67dc16d5972745688169d43e\",\n        \"createdAt\": \"2025-03-20T13:47:20.943Z\",\n        \"updatedAt\": \"2025-03-20T13:47:20.943Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\r\n    \"price\": 399\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/update/67dc1bd2972745688169d444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"update",
+								"67dc1bd2972745688169d444"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success for user2",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\r\n    \"price\": 399\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/update/67dc33074b8ae9801edcefd3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"update",
+										"67dc33074b8ae9801edcefd3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "486"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e6-K3lvBj8Sd/d7wnGX8SAfUWbc4Qk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 14:56:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product updated\",\n    \"product\": {\n        \"_id\": \"67dc1bd2972745688169d444\",\n        \"productName\": \"Adidas Tiro 23 Training Pants\",\n        \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\n        \"price\": 399,\n        \"category\": \"Sportswear\",\n        \"brand\": \"67dbeb707d797983e313c38a\",\n        \"productImage\": \"uploads\\\\1742478290273-adidas_Tiro_Training_ Pants.jpeg\",\n        \"addedBy\": \"67dc16d5972745688169d43e\",\n        \"createdAt\": \"2025-03-20T13:44:50.290Z\",\n        \"updatedAt\": \"2025-03-20T14:56:56.054Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "failed for user1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Lightweight and breathable sportswear designed for maximum comfort and performance\",\r\n    \"price\": 399\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/update/67dc33074b8ae9801edcefd3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"update",
+										"67dc33074b8ae9801edcefd3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-YHQyqtmbA3tHXaLikVVt8vrmUD0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:08:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized to update this product\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/product/delete/67dc1bd2972745688169d444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"delete",
+								"67dc1bd2972745688169d444"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed for user1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/delete/67dc1bd2972745688169d444",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"delete",
+										"67dc1bd2972745688169d444"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-JzVw+C6Ka8PfiMKLqplQXaXDRFU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:17:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized to delete this product\"\n}"
+						},
+						{
+							"name": "success for user2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/product/delete/67dc1bd2972745688169d444",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"delete",
+										"67dc1bd2972745688169d444"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-SUOjrQM9v/ZnWfd464qBypgAgyE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:20:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Blocking & Unblocking",
+			"item": [
+				{
+					"name": "Blocking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"targetUserId\": \"67dbc53e0981a82856400a54\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/block",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"block"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user2 blocks user1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetUserId\": \"67dbc53e0981a82856400a54\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/block",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"block"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-0geXPF0VsMUCq4EvxmPK1Nsl6Rc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 05:32:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User blocked successfully\",\n    \"blockedUsers\": [\n        \"67dbc53e0981a82856400a54\"\n    ]\n}"
+						},
+						{
+							"name": "user1 blocks user2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetUserId\": \"67dc16d5972745688169d43e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/block",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"block"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-NuF0rHFWDLXbV4t5SQ6/u73y+v4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 05:37:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User blocked successfully\",\n    \"blockedUsers\": [\n        \"67dc16d5972745688169d43e\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Unblocking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"targetUserId\": \"67dbc53e0981a82856400a54\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/unblock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"unblock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user2 unblocks user1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetUserId\": \"67dbc53e0981a82856400a54\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/unblock",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"unblock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-yP3gHyGepchISwZFybCVg0yy8hw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 05:40:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User unblocked successfully\",\n    \"blockedUsers\": []\n}"
+						},
+						{
+							"name": "user1 unblocks user2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"targetUserId\": \"67dc16d5972745688169d43e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/user/unblock",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"user",
+										"unblock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-yP3gHyGepchISwZFybCVg0yy8hw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 05:42:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User unblocked successfully\",\n    \"blockedUsers\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
