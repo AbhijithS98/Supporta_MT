@@ -32,5 +32,21 @@ export class UserService{
     });
 
     return { message: "User deleted successfully and logged out." };
-}
+  }
+
+
+  async blockUser(userId, targetUserId) {
+    if (userId === targetUserId) throw new Error("You cannot block yourself.");
+    
+    const updatedUser = await userRepository.blockUser(userId, targetUserId);
+    return updatedUser;
+  }
+
+
+  async unblockUser(userId, targetUserId) {
+    if (userId === targetUserId) throw new Error("You cannot unblock yourself.");
+
+    const updatedUser = await userRepository.unblockUser(userId, targetUserId);
+    return updatedUser;
+  }
 }

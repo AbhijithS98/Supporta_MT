@@ -21,6 +21,27 @@ export class UserRepository {
     async deleteUser(id) {
         return await User.findByIdAndDelete(id);
     }
+
+    async blockUser(userId, targetUserId) {
+        return await User.findByIdAndUpdate(
+            userId,
+            { $addToSet: { blockedUsers: targetUserId } }, 
+            { new: true }
+        );
+    }
+
+    async unblockUser(userId, targetUserId) {
+        return await User.findByIdAndUpdate(
+            userId,
+            { $pull: { blockedUsers: targetUserId } }, 
+            { new: true }
+        );
+    }
+
+
+    async findBlockedByUsers(userId) {
+        return await User.find({ blockedUsers: userId }).select("_id"); 
+    }
 }
 
 

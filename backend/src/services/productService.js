@@ -1,8 +1,10 @@
 import { ProductRepository } from "../repositories/productRepository.js";
 import { BrandRepository } from "../repositories/brandRepository.js";
+import { UserRepository } from "../repositories/userRepository.js";
 
 const productRepository = new ProductRepository();
 const brandRepository = new BrandRepository();
+const userRepository = new UserRepository();
 
 export class ProductService {
 
@@ -25,8 +27,18 @@ export class ProductService {
     return await productRepository.createProduct({ productName, description, price, category, brand, productImage, addedBy });
   }
 
-  async getAllProducts() {
-    return await productRepository.findAll();
+  // async getAllProducts(userId) {
+  //   const blockedByUsers = await userRepository.findBlockedByUsers(userId);
+  //   const blockedUserIds = blockedByUsers.map(user => user._id); // Get IDs of users who blocked the user
+
+  //   return await productRepository.findAllProducts(blockedUserIds)
+  // }
+
+  async getAllProducts(userId, filters, sortField, sortOrder) {
+    const blockedByUsers = await userRepository.findBlockedByUsers(userId);
+    const blockedUserIds = blockedByUsers.map(user => user._id);
+
+    return await productRepository.findAllProducts(blockedUserIds, filters, sortField, sortOrder);
   }
 
   async getUserProducts(userId) {

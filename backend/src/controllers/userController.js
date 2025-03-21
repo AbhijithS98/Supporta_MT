@@ -30,4 +30,30 @@ export class UserController{
         res.status(400).json({ error: error.message });
     }
   }
+
+
+  async blockUser(req, res) {
+    try {
+        const { targetUserId } = req.body;
+        const userId = req.user.userId;
+
+        const updatedUser = await userService.blockUser(userId, targetUserId);
+        res.status(200).json({ message: "User blocked successfully", blockedUsers: updatedUser.blockedUsers });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+  }
+
+
+  async unblockUser(req, res) {
+    try {
+        const { targetUserId } = req.body;
+        const userId = req.user.userId;
+
+        const updatedUser = await userService.unblockUser(userId, targetUserId);
+        res.status(200).json({ message: "User unblocked successfully", blockedUsers: updatedUser.blockedUsers });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+  }
 }

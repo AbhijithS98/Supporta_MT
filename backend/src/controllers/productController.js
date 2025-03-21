@@ -26,14 +26,31 @@ export class ProductController{
   };
 
 
+  // async getAllProducts(req, res) {
+  //   try {
+  //     const userId = req.user.userId;
+  //     const products = await productService.getAllProducts(userId);
+  //     res.status(200).json(products);
+  //   } catch (error) {
+  //     res.status(500).json({ error: error.message });
+  //   }
+  // };
+
+
   async getAllProducts(req, res) {
     try {
-      const products = await productService.getAllProducts();
-      res.status(200).json(products);
+        const userId = req.user.userId;
+        const { category, sortField = "price", sortOrder = "asc" } = req.query;
+
+        const filters = {};
+        if (category) filters.category = category;
+
+        const products = await productService.getAllProducts(userId, filters, sortField, sortOrder);
+        res.status(200).json(products);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
-  };
+  }
 
 
   async getUserProducts(req, res) {
