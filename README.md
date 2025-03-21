@@ -1,3 +1,5 @@
+*For better reading plese view this file in 'code' mode if you are viewing it in github repo*
+
 BACKEND MACHINE TASK
 
 Project Overview
