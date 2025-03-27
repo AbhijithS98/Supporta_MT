@@ -27,12 +27,6 @@ export class ProductService {
     return await productRepository.createProduct({ productName, description, price, category, brand, productImage, addedBy });
   }
 
-  // async getAllProducts(userId) {
-  //   const blockedByUsers = await userRepository.findBlockedByUsers(userId);
-  //   const blockedUserIds = blockedByUsers.map(user => user._id); // Get IDs of users who blocked the user
-
-  //   return await productRepository.findAllProducts(blockedUserIds)
-  // }
 
   async getAllProducts(userId, filters, sortField, sortOrder) {
     const blockedByUsers = await userRepository.findBlockedByUsers(userId);

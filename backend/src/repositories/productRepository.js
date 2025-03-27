@@ -13,12 +13,6 @@ export class ProductRepository{
     return await Product.findOne({ productName });
   }
 
-  // async findAllProducts(blockedUserIds, filters = {}) {
-  //   return await Product.find({
-  //                   addedBy: { $nin: blockedUserIds }, // Exclude products from users who blocked this user
-  //                   ...filters
-  //                 }).populate("addedBy", "username email");
-  // }
 
   async findAllProducts(blockedUserIds, filters = {}, sortField = "price", sortOrder = "asc") {
     const query = { addedBy: { $nin: blockedUserIds }, ...filters };
